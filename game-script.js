@@ -43,4 +43,11 @@ for (let i = 0; i < 5; i++){
 }
 }
 
+function score(playerScore, computerScore){
+    if (playerScore > computerScore){
+        return "Player wins with "+playerScore+" points, "+"congratulations!"
+    } else {return "Computer wins with "+computerScore+" points, "+"better luck next time!"}
+}
+
 console.log(game());
+console.log(score(playerScore, computerScore));
