@@ -1,4 +1,4 @@
-const myArray = ["rock", "paper", "scissor"];
+const myArray = ["rock", "paper", "scissors"];
 
 
 function computerPlay(){
@@ -7,26 +7,26 @@ return myArray[Math.floor(Math.random()*myArray.length)];
 
 
 let computerChoice = computerPlay();
-let playerChoice //= prompt("Rock, Paper or scissor?");
+let playerChoice //= prompt("Rock, Paper or scissors?");
 
 
 function playRound(playerChoice, computerChoice){
     computerChoice = computerPlay().toLowerCase();
-    playerChoice = prompt("Rock, Paper or scissor?").toLowerCase();
+    playerChoice = prompt("Rock, Paper or scissors?").toLowerCase();
     if (playerChoice == computerChoice){
     result = "It's a tie, play again";
-    } else if (playerChoice == "rock" && computerChoice == "scissor"){
-        result = ("You win " + playerChoice + " beats " + computerChoice);
+    } else if (playerChoice == "rock" && computerChoice == "scissors"){
+        result = ("You win because " + playerChoice + " beats " + computerChoice);
         playerScore++
-    } else if (playerChoice == "scissor" && computerChoice == "paper"){
-        result = ("You win " + playerChoice + " beats " + computerChoice)
+    } else if (playerChoice == "scissors" && computerChoice == "paper"){
+        result = ("You win because " + playerChoice + " beats " + computerChoice)
         playerScore++
     } else if (playerChoice == "paper" && computerChoice == "rock"){
-        result = ("You win " + playerChoice + " beats " + computerChoice);
+        result = ("You win because " + playerChoice + " beats " + computerChoice);
         playerScore++
     } else if (
-        (computerChoice === 'rock' && playerChoice === 'scissor') ||
-        (computerChoice === 'scissor' && playerChoice === 'paper') ||
+        (computerChoice === 'rock' && playerChoice === 'scissors') ||
+        (computerChoice === 'scissors' && playerChoice === 'paper') ||
         (computerChoice === 'paper' && playerChoice === 'rock')
     ){result = "You lost because " + computerChoice + " beats " + playerChoice
     computerScore++} else {result = "Choice not valid, you lost your turn"}
@@ -40,7 +40,7 @@ let computerScore = 0;
 
 function game(){
 for (let i = 0; i < 5; i++){
-    console.log(playRound(playerChoice, computerChoice));
+    playRound(playerChoice, computerChoice);
 }
 }
 
