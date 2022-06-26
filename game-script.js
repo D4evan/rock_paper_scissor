@@ -7,15 +7,14 @@ return myArray[Math.floor(Math.random()*myArray.length)];
 
 
 let computerChoice = computerPlay();
-let playerChoice = "scissor";
+let playerChoice //= prompt("Rock, Paper or scissor?");
 
 
 function playRound(playerChoice, computerChoice){
     computerChoice = computerPlay().toLowerCase();
-    playerChoice = playerChoice.toLowerCase();
+    playerChoice = prompt("Rock, Paper or scissor?").toLowerCase();
     if (playerChoice == computerChoice){
     result = "It's a tie, play again";
-        playerScore++
     } else if (playerChoice == "rock" && computerChoice == "scissor"){
         result = ("You win " + playerChoice + " beats " + computerChoice);
         playerScore++
@@ -25,14 +24,16 @@ function playRound(playerChoice, computerChoice){
     } else if (playerChoice == "paper" && computerChoice == "rock"){
         result = ("You win " + playerChoice + " beats " + computerChoice);
         playerScore++
-    } else {result = "You lost because " + computerChoice + " beats " + playerChoice
-        computerScore++}
+    } else if (
+        (computerChoice === 'rock' && playerChoice === 'scissor') ||
+        (computerChoice === 'scissor' && playerChoice === 'paper') ||
+        (computerChoice === 'paper' && playerChoice === 'rock')
+    ){result = "You lost because " + computerChoice + " beats " + playerChoice
+    computerScore++} else {result = "Choice not valid, you lost your turn"}
+        
 
     console.log(result, "\ncomputer score: " + computerScore, "\nplayer score: " + playerScore);
 }
-
-
-//console.log(playRound(playerChoice, computerChoice));
 
 let playerScore = 0;
 let computerScore = 0;
